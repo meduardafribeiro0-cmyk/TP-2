@@ -48,16 +48,12 @@
 
 .escondida {
     display: none !important;
-    opacity: 0;
-    
-}
-
-.ativa {
-    display: flex;
-    opacity: 1;
 }
 
 .conteudo-menu{
     margin-left: 70px;
     margin-top: 200px;
+    display: flex;
+    flex-direction: column;
 }
+
