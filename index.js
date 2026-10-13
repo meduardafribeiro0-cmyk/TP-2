@@ -1,17 +1,15 @@
 function iniciarJogo() {
-    telaInicial = document.querySelector('#tela-inicial');
-    telaJogo = document.querySelector('#tela-jogo');
-
-    telaInicial.style.opacity = '0';
+    let telaInicialEl = document.querySelector('#tela-inicial');
+    let telaJogoEl = document.querySelector('#tela-jogo');
+    let caixinhaEl = document.querySelector('#caixa-obejto');
 
     setTimeout(() => {
+        telaInicialEl.classList.remove('ativa');
+        telaInicialEl.classList.add('escondida');
 
-        telaInicial.classList.remove('ativa');
-        telaInicial.classList.add('escondida');
-
-        telaJogo.classList.remove('escondida');
-        telaJogo.classList.add('ativa');
-        telaJogo.style.opacity = '1';
+        telaJogoEl.classList.remove('escondida');
+        telaJogoEl.classList.add('ativa');
+        telaJogoEl.style.opacity = '1';
     }, 500); 
 }
 
