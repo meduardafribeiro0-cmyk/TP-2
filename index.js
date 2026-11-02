@@ -1,14 +1,17 @@
-function iniciarJogo() {
-    let telaInicialEl = document.querySelector('#tela-inicial');
-    let telaJogoEl = document.querySelector('#tela-jogo');
-    telaInicialEl.classList.add('escondida');
-    telaJogoEl.classList.remove('escondida');
+function carregarCena(cena) {
+    console.log("A função foi chamada!");
+    
+    let cenaAtualObj = cenas[cena];
+    let divFundo = document.querySelector('#tela-inicial');
+
+    divFundo.style.backgroundImage = `url(${cenaAtualObj.fundo})`;
 }
 
-let botaoJogarEl = document.querySelector('#jogar')
+let botaoIniciaEl = document.querySelector('#jogar')
 
-botaoJogarEl.addEventListener('click', () => {
-    iniciarJogo();
-});
+botaoIniciaEl.addEventListener('click', () => {
+    let menuInicial = document.querySelector(".conteudo-menu");
+    menuInicial.style.display = 'none';
 
-
+    carregarCena(0);
+})

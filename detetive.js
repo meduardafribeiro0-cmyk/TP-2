@@ -3,37 +3,38 @@ const cenas = [
     {
         nome: 'ponto-de-onibus-1',
         tipo: 'detetive',
-        fundo: 'imagens/fotoPonto.jpeg',
+        fundo: 'imagens/fotinha.jpeg',
         interagiveis: [
             {
                 nome: 'lixeira',
-                imagem: 'imagens/lixeira.png',
+                imagem: 'imagens/fotoLixeira.png',
                 posicao: {
                     right: 100,
                     bottom: 50
                 },
                 hover: {
                     acao: 'som',
-                    arquivo: 'lixeira.mp3'
+                    arquivo: 'sons/somLixeira.mp3'
                 },
                 click: {
                     acao: 'modal',
-                    conteudo: '<h2>Lixeira suspeita</h2><p>......</p>'
+                    conteudo: '<h2>Lixeira suspeita</h2>'
                 }
             }
         ]
     }, {
+        
 
     }
 ]
 
 
 
-function carregaCena(cena) {
-    // 1. muda o bg
-    // 2. cria os elementso HTML para os interagiveis
-    // 3. associa eventos js aos interagiveis
-}
+
+    
+
+
+
 
 
 function executaAcao(tipo, acao) {
