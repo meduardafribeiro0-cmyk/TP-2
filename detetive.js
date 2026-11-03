@@ -7,9 +7,9 @@ const cenas = [
         interagiveis: [
             {
                 nome: 'lixeira',
-                imagem: 'imagens/fotoLixeira.png',
+                imagem: 'imagens/imagem-lixeira.png',
                 posicao: {
-                    right: 1225,
+                    right: 300,
                     heigth: 200,
                     bottom: 50
                 },

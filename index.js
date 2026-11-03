@@ -12,14 +12,16 @@ function carregarCena(cena) {
 
         let divInteragiveis = document.createElement('div')
 
-        divInteragiveis.style.marginLeft = `${item.posicao.right}px`
-        divInteragiveis.style.marginBottom = `${item.posicao.bottom}px`
-        
+        divInteragiveis.style.right= `${item.posicao.right}px`
         divInteragiveis.style.backgroundImage = `url('${item.imagem}')`
-        divInteragiveis.style.width = '100px';   
+        divInteragiveis.style.width = '100px';
+        divInteragiveis.style.backgroundSize = '100px';
         divInteragiveis.style.height = `${item.posicao.heigth}px`;
-
+        divInteragiveis.style.position = 'absolute';
+        divInteragiveis.style.backgroundRepeat = 'no-repeat'
+    
         
+        divFundo.style.scale = window.innerWidth/922;
 
         divFundo.appendChild(divInteragiveis);
     })
