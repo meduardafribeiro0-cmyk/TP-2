@@ -9,7 +9,8 @@ const cenas = [
                 nome: 'lixeira',
                 imagem: 'imagens/fotoLixeira.png',
                 posicao: {
-                    right: 100,
+                    right: 1225,
+                    heigth: 200,
                     bottom: 50
                 },
                 hover: {

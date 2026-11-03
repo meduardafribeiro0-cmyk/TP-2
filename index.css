@@ -3,13 +3,14 @@
 }
 
 
-#tela-inicial {
+#tela-inicial{
     background-image: url('imagens/inicial.jpg'); 
     background-size: cover;
     background-position: center -20px;
     display: flex;
     align-items: center;
     min-height: 100vh;
+    position: relative;
 }
 
 #jogar,
@@ -49,3 +50,6 @@
     flex-direction: column;
 }
 
+#itens-container{
+    position: absolute;
+}
