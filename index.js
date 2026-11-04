@@ -33,5 +33,18 @@ botaoIniciaEl.addEventListener('click', () => {
     let menuInicial = document.querySelector(".conteudo-menu");
     menuInicial.style.display = 'none';
 
+    transicaoDeCena();
+
     carregarCena(0);
 })
+
+let transicaoCena = document.querySelector("#transicao-cena");
+
+function transicaoDeCena() {
+    transicaoCena.classList.remove('escondida');
+    transicaoCena.style.opacity = '2';
+
+    setTimeout(() => {
+            transicaoCena.classList.add('escondida');
+        }, 1000);
+}
