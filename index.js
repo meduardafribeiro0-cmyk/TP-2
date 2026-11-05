@@ -18,7 +18,8 @@ function carregarCena(cena) {
         divInteragiveis.style.backgroundSize = '100px';
         divInteragiveis.style.height = `${item.posicao.heigth}px`;
         divInteragiveis.style.position = 'absolute';
-        divInteragiveis.style.backgroundRepeat = 'no-repeat'
+        divInteragiveis.style.backgroundRepeat = 'no-repeat';
+        divInteragiveis.classList.add('interagiveis');
     
         
         divFundo.style.scale = window.innerWidth/922;
