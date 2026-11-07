@@ -8,6 +8,8 @@ function carregarCena(cena) {
     const itensContainer = document.querySelector('#itens-container');
     itensContainer.innerHTML = '';
 
+    divFundo.style.scale = 1;
+    
     cenaAtualObj.interagiveis.forEach(item =>{
 
         let divInteragiveis = document.createElement('div')
@@ -22,7 +24,6 @@ function carregarCena(cena) {
         divInteragiveis.classList.add('interagiveis');
     
         
-        divFundo.style.scale = window.innerWidth/922;
 
         divFundo.appendChild(divInteragiveis);
     })
@@ -41,6 +42,7 @@ botaoIniciaEl.addEventListener('click', () => {
 
 let transicaoCena = document.querySelector("#transicao-cena");
 
+//Faz com que antes de mudar de cena exista transição!
 function transicaoDeCena() {
     transicaoCena.classList.remove('escondida');
     transicaoCena.style.opacity = '2';
@@ -48,4 +50,17 @@ function transicaoDeCena() {
     setTimeout(() => {
             transicaoCena.classList.add('escondida');
         }, 1000);
+}
+
+//Faz com que apareça legenda em determinado integravivel ou algo
+function mostrarLegenda(texto) {
+    let legenda = document.querySelector("#legenda")
+
+    legenda.innerText = texto;
+
+    legenda.classList.remove('escondido');
+
+    setTimeout(() => {
+            transicaoCena.classList.add('escondida');
+        }, 2000);
 }
