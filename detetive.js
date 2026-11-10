@@ -3,15 +3,17 @@ const cenas = [
     {
         nome: 'ponto-de-onibus-1',
         tipo: 'detetive',
-        fundo: 'imagens/fotinha.jpeg',
+        fundo: 'imagens/imagemPonto.png',
+        posicaoFundo: 'right center',
         interagiveis: [
             {
                 nome: 'lixeira',
-                imagem: 'imagens/imagem-lixeira.png',
+                imagem: 'imagens/lixeira-ponto.png',
                 posicao: {
-                    right: 300,
-                    heigth: 200,
-                    bottom: 50
+                    right: 193.96,
+                    height: 128.56, //para calcular VALOR/escala
+                    bottom: 269.47,
+                    width: 108.45
                 },
                 hover: {
                     acao: 'som',
