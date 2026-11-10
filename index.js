@@ -19,6 +19,12 @@ function carregarCena(cena) {
         divInteragiveis.style.backgroundRepeat = 'no-repeat';
         divInteragiveis.classList.add('interagiveis');
 
+        if(item.click){
+            divInteragiveis.addEventListener('click', (e) => {
+                executaAcao(item.click.acao, `${item.click.conteudo}`);
+            })  
+        }
+
         divFundo.appendChild(divInteragiveis);
 
         objetos.push({ item, divInteragiveis });
@@ -115,9 +121,20 @@ function mostrarLegenda(texto) {
 
     legenda.innerText = texto;
 
-    legenda.classList.remove('escondido');
+    legenda.classList.remove('escondida');
 
     setTimeout(() => {
-            transicaoCena.classList.add('escondida');
-        }, 2000);
+            legenda.classList.add('escondida');
+        }, 1000);
+}
+
+function executaAcao(acao, conteudo) {
+    switch (acao) {
+        case '':
+            
+            break;
+        case 'modal':
+            mostrarLegenda(conteudo)
+            break;
+    }
 }

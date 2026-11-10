@@ -1,8 +1,13 @@
+const estado = {
+    lixeiraAberta: false,
+    pegouPaninho: false,
+}
+
+
 const cenaAtual = 0;
 const cenas = [
     {
         nome: 'ponto-de-onibus-1',
-        tipo: 'detetive',
         fundo: 'imagens/imagemPonto.png',
         posicaoFundo: 'right center',
         interagiveis: [
@@ -15,17 +20,36 @@ const cenas = [
                     bottom: 269.47,
                     width: 108.45
                 },
-                hover: {
-                    acao: 'som',
-                    arquivo: 'sons/somLixeira.mp3'
-                },
-                click: {
-                    acao: 'modal',
-                    conteudo: '<h2>Lixeira comum</h2>'
-                }
+                eventos: [
+                    {
+                        tipo: 'hover',
+                        acao: 'som',
+                        conteudo: 'sons/somLixeira.mp3',
+                        modificaEstado: {
+                            lixeiraAberta: true
+                        }
+                    },
+                    {
+                        tipo: 'click',
+                        acao: 'modal',
+                        conteudo: 'Lixeira comum',
+                        preCondicao: {
+                            lixeiraAberta: true
+                        }
+                    },
+
+                ],
+
             }
         ]
     }, {
+        nome: 'porta-cefet',
+        fundo: 'imagens/portaria',
+        posicaofundo: 'center center',
+        interagiveis: [
+
+        ]
+        
         
 
     }
@@ -33,20 +57,3 @@ const cenas = [
 
 
 
-
-    
-
-
-
-
-
-function executaAcao(tipo, acao) {
-    switch (tipo) {
-        case 'som':
-            /// tocar o som
-            break;
-        case 'modal':
-            // cria e mostra janelinham odal
-            break;
-    }
-}
