@@ -86,7 +86,7 @@
 
 #legenda{
     position: absolute;
-    bottom: 20px;
+    bottom: 14%;
     left: 50%;
     transform: translateX(-50%);
     background-color: #222034;
@@ -94,10 +94,30 @@
     font-family: 'Redaction 50', serif;
     color: #ffffff;
     padding: 14px 20px;
-    font-size: 16px;
+    font-size: 19px;
     width: fit-content;
     max-width: 80%;
     word-wrap: break-word;
     border: 3px solid #ffffff;
 }
 
+#inventario {
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    position: fixed;
+    width: 235px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.slot {
+    width: 235px;
+    height: 55px;
+    border: 1px dashed rgb(208, 190, 190);
+    border-radius: 3px;
+}

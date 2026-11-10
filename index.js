@@ -19,15 +19,28 @@ function carregarCena(cena) {
         divInteragiveis.style.backgroundRepeat = 'no-repeat';
         divInteragiveis.classList.add('interagiveis');
 
-        if(item.click){
-            divInteragiveis.addEventListener('click', (e) => {
-                executaAcao(item.click.acao, `${item.click.conteudo}`);
-            })  
+        item.eventos.forEach(evento => {
+            if (evento.tipo === 'click') {
+                divInteragiveis.addEventListener('click', () => {
+                executaAcao(evento.acao, evento.conteudo);
+            });
         }
+});
 
         divFundo.appendChild(divInteragiveis);
 
         objetos.push({ item, divInteragiveis });
+
+        let inventario = document.querySelector('#inventario');
+        inventario.style.display = 'none';
+
+        divInteragiveis.addEventListener('click', () => {
+            if (estado.lixeiraAberta === false && item.nome === 'lixeira') {
+            inventario.style.display = 'flex';
+            estado.lixeiraAberta = true;
+            }
+        });
+
     });
     
     //Ajusta o tamnho da imagem dependendo do tamanho da janela
@@ -128,13 +141,26 @@ function mostrarLegenda(texto) {
         }, 1000);
 }
 
+let inventario = document.querySelector('#inventario');
+inventario.style.display = 'none'; 
+
 function executaAcao(acao, conteudo) {
     switch (acao) {
         case '':
             
             break;
-        case 'modal':
-            mostrarLegenda(conteudo)
+
+        case 'abrirLixeira':
+            if (estado.lixeiraAberta === false) {
+                inventario.style.display = 'flex';
+                estado.lixeiraAberta = true;
+                mostrarLegenda(conteudo)
+            }
+            else {
+                conteudo = 'lixeira vazia';
+                mostrarLegenda(conteudo)
+            }
             break;
     }
 }
+

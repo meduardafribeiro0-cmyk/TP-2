@@ -31,11 +31,8 @@ const cenas = [
                     },
                     {
                         tipo: 'click',
-                        acao: 'modal',
-                        conteudo: 'Lixeira comum',
-                        preCondicao: {
-                            lixeiraAberta: true
-                        }
+                        acao: 'abrirLixeira',
+                        conteudo: 'pano especial',
                     },
 
                 ],
