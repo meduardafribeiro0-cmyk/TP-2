@@ -21,7 +21,7 @@ const cenas = [
                 },
                 click: {
                     acao: 'modal',
-                    conteudo: '<h2>Lixeira suspeita</h2>'
+                    conteudo: '<h2>Lixeira comum</h2>'
                 }
             }
         ]
