@@ -32,7 +32,7 @@ const cenas = [
                     {
                         tipo: 'click',
                         acao: 'abrirLixeira',
-                        conteudo: 'pano especial',
+                        conteudo: 'pano coletado',
                     },
 
                 ],

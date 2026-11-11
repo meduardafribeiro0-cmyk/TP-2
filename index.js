@@ -22,25 +22,14 @@ function carregarCena(cena) {
         item.eventos.forEach(evento => {
             if (evento.tipo === 'click') {
                 divInteragiveis.addEventListener('click', () => {
-                executaAcao(evento.acao, evento.conteudo);
-            });
-        }
-});
-
-        divFundo.appendChild(divInteragiveis);
-
-        objetos.push({ item, divInteragiveis });
-
-        let inventario = document.querySelector('#inventario');
-        inventario.style.display = 'none';
-
-        divInteragiveis.addEventListener('click', () => {
-            if (estado.lixeiraAberta === false && item.nome === 'lixeira') {
-            inventario.style.display = 'flex';
-            estado.lixeiraAberta = true;
+                    executaAcao(evento.acao, evento.conteudo);
+                });
             }
         });
 
+        divFundo.appendChild(divInteragiveis);
+
+        objetos.push({ item, divInteragiveis });    
     });
     
     //Ajusta o tamnho da imagem dependendo do tamanho da janela
@@ -101,7 +90,8 @@ function carregarCena(cena) {
 }
 
 
-let botaoIniciaEl = document.querySelector('#jogar')
+let botaoIniciaEl = document.querySelector('#jogar');
+let inventario = document.querySelector('#inventario');
 
 //Inicia o jogo após do click do botão jogar
 botaoIniciaEl.addEventListener('click', () => {
@@ -114,6 +104,13 @@ botaoIniciaEl.addEventListener('click', () => {
     transicaoDeCena();
 
     carregarCena(0);
+
+    setTimeout(() => {
+        inventario.style.display = 'flex';
+        setTimeout(() => {
+            inventario.style.opacity = '1';
+        }, 50);
+    }, 2000);
 })
 
 let transicaoCena = document.querySelector("#transicao-cena");
@@ -141,8 +138,6 @@ function mostrarLegenda(texto) {
         }, 1000);
 }
 
-let inventario = document.querySelector('#inventario');
-inventario.style.display = 'none'; 
 
 function executaAcao(acao, conteudo) {
     switch (acao) {
@@ -152,7 +147,6 @@ function executaAcao(acao, conteudo) {
 
         case 'abrirLixeira':
             if (estado.lixeiraAberta === false) {
-                inventario.style.display = 'flex';
                 estado.lixeiraAberta = true;
                 mostrarLegenda(conteudo)
             }
