@@ -158,3 +158,10 @@ function executaAcao(acao, conteudo) {
     }
 }
 
+//quando clicar na seta vai mudar de sala
+let TrocaCenaEl = document.querySelector('#trocaSala');
+
+TrocaCenaEl.addEventListener('click', (e) =>{
+    transicaoCena()
+    carregarCena()
+})

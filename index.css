@@ -124,3 +124,17 @@
     border: 1.5px dashed rgb(208, 190, 190);
     border-radius: 3px;
 }
+
+#trocaSala {
+    display: flex;
+    height: 40px;
+    width: 40px;
+    top:50%;
+    position: relative;
+    left: 95%;
+    background-color: rgb(27, 2, 29);
+    border-radius: 50px;
+    border: 2px solid rgb(0, 0, 0);
+    
+
+}

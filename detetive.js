@@ -22,19 +22,11 @@ const cenas = [
                 },
                 eventos: [
                     {
-                        tipo: 'hover',
-                        acao: 'som',
-                        conteudo: 'sons/somLixeira.mp3',
-                        modificaEstado: {
-                            lixeiraAberta: true
-                        }
-                    },
-                    {
                         tipo: 'click',
                         acao: 'abrirLixeira',
                         conteudo: 'pano coletado',
+                        som: 'sons/somLixeira.mp3'
                     },
-
                 ],
 
             }
@@ -44,7 +36,10 @@ const cenas = [
         fundo: 'imagens/portaria',
         posicaofundo: 'center center',
         interagiveis: [
-
+            {
+                nome: 'portaEntarda',
+                imagem: 'imagemPorta',
+            }
         ]
         
         
