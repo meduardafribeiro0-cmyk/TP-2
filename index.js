@@ -155,13 +155,16 @@ function executaAcao(acao, conteudo) {
                 mostrarLegenda(conteudo)
             }
             break;
+
+        case 'pegarChiclete':
+            if(estado.pegouChiclete === false){
+                estado.pegouChiclete = true;
+                mostrarLegenda(conteudo)
+            }
+            else {
+                conteudo = 'mesa vazia';
+                mostrarLegenda(conteudo)
+            }
+            break;
     }
 }
-
-//quando clicar na seta vai mudar de sala
-let TrocaCenaEl = document.querySelector('#trocaSala');
-
-TrocaCenaEl.addEventListener('click', (e) =>{
-    transicaoCena()
-    carregarCena()
-})

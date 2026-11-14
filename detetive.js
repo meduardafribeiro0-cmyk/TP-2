@@ -1,6 +1,7 @@
 const estado = {
     lixeiraAberta: false,
     pegouPaninho: false,
+    pegouChiclete: false,
 }
 
 
@@ -24,14 +25,12 @@ const cenas = [
                     {
                         tipo: 'click',
                         acao: 'abrirLixeira',
-                        conteudo: 'pano coletado',
-                        som: 'sons/somLixeira.mp3'
-                    },
-                ],
-
+                        conteudo: 'pano coletado'
+                    }
+                ]
             }
         ]
-    }, {
+    }, { //criei aqui apenas o interagivel da porta do cefet
         nome: 'porta-cefet',
         fundo: 'imagens/portaria',
         posicaofundo: 'center center',
@@ -39,11 +38,45 @@ const cenas = [
             {
                 nome: 'portaEntarda',
                 imagem: 'imagemPorta',
+                posicao: {
+                    right: 'posiçao',
+                    left: 'posiçao',
+                    bottom : 'posiçao',
+                    top: 'posiçao'
+                }
             }
         ]
-        
-        
+    }, {
+        nome: 'predioP1',
+        fundo: 'imagens/fotodoP1',
+        posicaoFundo: 'center center',
+        interagiveis : [
+            {
+                nome: 'bala',
+                imagem: 'imagens/chiclete',
+                posicao: {
+                    right: 'posiçao',
+                    left: 'posiçao',
+                    bottom: 'posiçao',
+                    top: 'posiçao'
+                },
+                eventos: [
+                    {
+                        tipo: 'click',
+                        acao: 'pegarChiclete',
+                        conteudo: 'chiclete coletado'
+                    }
+                ]
+            },{
+                nome: 'bonecoEstatueta',
+                imagem: 'imagens/boneco',
+                posicao: {
+                    right: 'posicao',
+                    
+                }
+            }
 
+        ]
     }
 ]
 
