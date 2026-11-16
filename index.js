@@ -35,9 +35,22 @@ if (cenaAtualObj.setas) {
             divInteragiveis.addEventListener('click', () => {
                 for (let evento of item.eventos) {
                     if (evento.tipo === 'click' && executaAcao(evento)) {
+                        if(evento.acao == 'coletar'){ //cria uma imagem e coloca ela no slot do inventario
+                            let coletavelEl = document.createElement('img')
+                            coletavelEl.src = `${evento.imagem}`;
+
+                            let slots = document.querySelectorAll('.slot');
+                            for(let slot of slots){
+                                if(slot.children.length === 0){
+                                    slot.appendChild(coletavelEl);
+                                    break;
+                                }
+                            }
+                        }
                         break;
-            }
-        }
+                    }
+                }
+        
     });
 
     divInteragiveis.addEventListener('mouseenter', () => {
@@ -187,7 +200,7 @@ function irParaCena(destino) {
     carregarCena(destino);
 }
 
-
+//faz com que a açao nao execute duas vezes
 function executaAcao(evento) {
 
     if (evento.preCondicao) {
@@ -228,3 +241,4 @@ function executaAcao(evento) {
 
     return true;
 }
+

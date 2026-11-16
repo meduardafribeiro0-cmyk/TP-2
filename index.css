@@ -126,6 +126,14 @@
     border-radius: 3px;
 }
 
+.slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: 5px;
+}
+
 #seta-direita {
     background-image: url('imagens/seta-direita.png');
     width: 50px;

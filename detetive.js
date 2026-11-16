@@ -28,13 +28,15 @@ const cenas = [
                     {
                         tipo: 'click',
                         acao: 'coletar',
+                        imagem: 'imagens/paninho2.png',
                         conteudo: 'pano',
                         preCondicao: {
                             panoColetado: false
                         },
                         modificaEstado: {
                             panoColetado: true
-                        }
+                        },
+                        frase: 'pano sujo'
                     },
                     {
                         tipo: 'click',
