@@ -168,3 +168,23 @@ function executaAcao(acao, conteudo) {
             break;
     }
 }
+
+const modalTutorial =  document.querySelector('#modalTutorial');
+const modalCriadores = document.querySelector('#modalCriadores');
+const abrirModalTutorial = document.querySelector('#config');
+const abrirModalCriadores = document.querySelector('#criadores');
+const fecharModal = document.querySelectorAll('.fecharModal');
+
+abrirModalTutorial.addEventListener('click', () => {
+    modalTutorial.showModal();
+});
+
+abrirModalCriadores.addEventListener('click',() => {
+    modalCriadores.showModal();
+});
+
+fecharModal.forEach((botao) => {
+    botao.addEventListener('click', () => {
+        botao.closest('dialog').close();
+    });
+});
