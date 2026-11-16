@@ -1,6 +1,18 @@
 function carregarCena(cena) {
     
     let cenaAtualObj = cenas[cena];
+    setaParaEsquerda.classList.add('escondida');
+    setaParaDireita.classList.add('escondida');
+
+if (cenaAtualObj.setas) {
+    if (cenaAtualObj.setas.esquerda !== undefined) {
+        setaParaEsquerda.classList.remove('escondida');
+    }
+
+    if (cenaAtualObj.setas.direita !== undefined) {
+        setaParaDireita.classList.remove('escondida');
+    }
+}
     let divFundo = document.querySelector('#tela-jogo');
 
     divFundo.style.backgroundImage = `url(${cenaAtualObj.fundo})`;
@@ -19,13 +31,23 @@ function carregarCena(cena) {
         divInteragiveis.style.backgroundRepeat = 'no-repeat';
         divInteragiveis.classList.add('interagiveis');
 
-        item.eventos.forEach(evento => {
-            if (evento.tipo === 'click') {
-                divInteragiveis.addEventListener('click', () => {
-                    executaAcao(evento.acao, evento.conteudo);
-                });
+        if (item.eventos) {
+            divInteragiveis.addEventListener('click', () => {
+                for (let evento of item.eventos) {
+                    if (evento.tipo === 'click' && executaAcao(evento)) {
+                        break;
             }
-        });
+        }
+    });
+
+    divInteragiveis.addEventListener('mouseenter', () => {
+        for (let evento of item.eventos) {
+            if (evento.tipo === 'hover' && executaAcao(evento)) {
+                break;
+            }
+        }
+    });
+}
 
         divFundo.appendChild(divInteragiveis);
 
@@ -100,18 +122,12 @@ botaoIniciaEl.addEventListener('click', () => {
 
     telaInicial.classList.add('escondida');
     telaJogo.classList.remove('escondida');
+    
+    caixaHistoria.classList.remove('escondida');
 
-    transicaoDeCena();
+    carregarHistoria();
 
-    carregarCena(0);
-
-    setTimeout(() => {
-        inventario.style.display = 'flex';
-        setTimeout(() => {
-            inventario.style.opacity = '1';
-        }, 50);
-    }, 2000);
-})
+});
 
 let transicaoCena = document.querySelector("#transicao-cena");
 
@@ -138,34 +154,22 @@ function mostrarLegenda(texto) {
         }, 1000);
 }
 
+let setaParaEsquerda = document.querySelector('#seta-esquerda');
+let setaParaDireita = document.querySelector('#seta-direita');
 
-function executaAcao(acao, conteudo) {
-    switch (acao) {
-        case '':
-            
-            break;
+setaParaEsquerda.addEventListener('click', () => {
+    mudarCena('esquerda');
+});
 
-        case 'abrirLixeira':
-            if (estado.lixeiraAberta === false) {
-                estado.lixeiraAberta = true;
-                mostrarLegenda(conteudo)
-            }
-            else {
-                conteudo = 'lixeira vazia';
-                mostrarLegenda(conteudo)
-            }
-            break;
+setaParaDireita.addEventListener('click', () => {
+    mudarCena('direita');
+});
 
-        case 'pegarChiclete':
-            if(estado.pegouChiclete === false){
-                estado.pegouChiclete = true;
-                mostrarLegenda(conteudo)
-            }
-            else {
-                conteudo = 'mesa vazia';
-                mostrarLegenda(conteudo)
-            }
-            break;
+function mudarCena(direcao) {
+    let setas = cenas[cenaAtual].setas;
+
+    if (!setas) {
+        return;
     }
 }
 
@@ -188,3 +192,62 @@ fecharModal.forEach((botao) => {
         botao.closest('dialog').close();
     });
 });
+
+
+    let proximaCena = setas[direcao];
+
+    if (proximaCena === undefined) {
+        return;
+    }
+
+    irParaCena(proximaCena);
+
+
+function irParaCena(destino) {
+    cenaAtual = destino;
+
+    carregarCena(destino);
+}
+
+
+function executaAcao(evento) {
+
+    if (evento.preCondicao) {
+        for (let chave in evento.preCondicao) {
+            if (estado[chave] !== evento.preCondicao[chave]) {
+                return false;
+            }
+        }
+    }
+
+    switch (evento.acao) {
+
+        case 'modal':
+            mostrarLegenda(evento.conteudo);
+            break;
+
+        case 'coletar':
+            mostrarLegenda(evento.conteudo + ' coletado');
+            break;
+
+        case 'som':
+            new Audio(evento.conteudo).play();
+            break;
+        
+        case 'mudarCena':
+            irParaCena(evento.conteudo);
+            break;
+
+        default:
+            return false;
+    }
+
+    if (evento.modificaEstado) {
+        for (let chave in evento.modificaEstado) {
+            estado[chave] = evento.modificaEstado[chave];
+        }
+    }
+
+    return true;
+}
+
