@@ -12,7 +12,7 @@ const historiaCEFET = [
         fundo: "imagens/pao-de-acucar.png" 
     },
     {
-        texto: "“Então, anos depois, encontrei um envelope na porta. Não tinha remetente.",
+        texto: "Então, anos depois, encontrei um envelope na porta. Não tinha remetente.",
         fundo: "imagens/descoberta-envelope.png" 
     },
     {
@@ -24,7 +24,7 @@ const historiaCEFET = [
         fundo: "imagens/presente-para-pai.png" 
     },
     {
-        texto: "O sumiço do seu pai no CEFET foi uma farsa para acalmar a opinião pública. Ele não sofreu acidente nem abandonou você; seu desaparecimento envolve um projeto confidencial e interesses poderosos. A boa notícia é que ele aparentemente ainda está vivo, e talvez as respostas para sua dúvida esteja no CEFET...",
+        texto: "”O sumiço do seu pai no CEFET foi uma farsa para acalmar a opinião pública. Ele não sofreu acidente nem abandonou você; seu desaparecimento envolve um projeto confidencial e interesses poderosos. A boa notícia é que ele aparentemente ainda está vivo, e talvez as respostas para sua dúvida esteja no CEFET...”",
         fundo: "imagens/carta-aberta.png" 
     },
     {
