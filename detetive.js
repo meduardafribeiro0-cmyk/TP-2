@@ -76,42 +76,41 @@ const cenas = [
             }
         ]
     }, {
-        nome: 'predioP1',
+        nome: 'corredorP1',
         fundo: 'imagens/corredor.jpeg',
         posicaoFundo: 'center center',
         setas: {
             esquerda: 1,
-            direita: 3 //o valor deve ser a cena
+            direita: 4 //o valor deve ser a cena
         },
-        interagiveis : [
+        interagiveis: [
             {
-                nome: 'bala',
-                imagem: 'imagens/chiclete',
+                nome: 'porta',
+                imagem: 'imagens/',
                 posicao: {
-                    right: 'posiçao',
-                    left: 'posiçao',
-                    bottom: 'posiçao',
-                    top: 'posiçao'
+                    
+
                 },
                 eventos: [
                     {
                         tipo: 'click',
-                        acao: 'pegarChiclete',
-                        conteudo: 'chiclete coletado'
+                        acao: 'mudarCena',
+                        conteudo: 3
                     }
                 ]
-            },{
-                nome: 'bonecoEstatueta',
-                imagem: 'imagens/boneco',
-                posicao: {
-                    right: 'posicao',
-                    
-                }
             }
-
         ]
     }, {
-        nome: 'predioP12',
+        nome: 'predioP1',
+        fundo: 'imagens/',
+        posicaoFundo: 'center center',
+        interagiveis: [
+            {
+                nome: 'bala',
+                imagem: 'imagens/'
+
+            }
+        ]
     }
 ]
 
