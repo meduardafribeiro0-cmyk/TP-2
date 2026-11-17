@@ -46,7 +46,7 @@ const cenas = [
                             panoColetado: true
                         }
                     }
-                ],
+                ]
             }
         ]
     }, { //criei aqui apenas o interagivel da porta do cefet
@@ -81,13 +81,14 @@ const cenas = [
         posicaoFundo: 'center center',
         setas: {
             esquerda: 1,
-            direita: 4 //o valor deve ser a cena
+            direita: 3 //o valor deve ser a cena
         },
         interagiveis: [
             {
                 nome: 'porta',
                 imagem: 'imagens/',
                 posicao: {
+
                     
 
                 },
@@ -106,9 +107,39 @@ const cenas = [
         posicaoFundo: 'center center',
         interagiveis: [
             {
-                nome: 'bala',
-                imagem: 'imagens/'
+                nome: 'Chiclete',
+                imagem: 'imagens/',
+                posicao: {
 
+
+                },
+                eventos: [
+                    {
+                        tipo: 'click',
+                        acao: 'coletar',
+                        imagem: 'imagens/',
+                        conteudo: 'chiclete',
+                        preCondicao: {
+                            pegouChiclete: false
+                        },
+                        modificaEstado: {
+                            pegouChiclete: true
+                        },
+                        frase: 'chiclete mascado'
+
+                    },{
+                        tipo: 'click',
+                        acao: 'modal',
+                        conteudo: 'mesa vazia',
+                        preCondicao: {
+                            pegouChiclete: true
+                        }
+                    }
+                ]
+
+            },{
+                nome: 'estatueta',
+                imagem: 'imagens/'
             }
         ]
     }
