@@ -145,6 +145,50 @@
     cursor: pointer;
 }
 
+
+#modalTutorial, 
+#modalCriadores {
+    position: absolute;
+    border: 3px solid black;
+    border-radius: 7px;
+    background-color: #101d2a;
+    transform: translate(-50%, -50%);
+    width: 45%;
+    height: 60%;
+    top: 55%;
+    left: 50%;
+    box-shadow: 0px 4px 15px rgba(144, 143, 143, 0.7);
+}
+
+#modalTutorial p, 
+#modalCriadores p {
+    color: white;
+    font-size: 18.3px;
+    justify-content: center;
+    text-align: justify;
+    padding: 5px;
+}
+
+#modalTutorial h2, 
+#modalCriadores h2 {
+    padding: 2px;
+    color: #101d2a;
+    text-align: center;
+    background-color: #f5e9ce;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.fecharModal {
+    position: absolute;
+    right: 5%;
+    width: 85px;
+    height: 25px;
+    background-color: #f5e9ce;
+}
+
 #seta-esquerda {
     background-image: url('imagens/seta-esquerda.png');
     width: 50px;

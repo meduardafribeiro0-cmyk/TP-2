@@ -12,7 +12,7 @@ if (cenaAtualObj.setas) {
     if (cenaAtualObj.setas.direita !== undefined) {
         setaParaDireita.classList.remove('escondida');
     }
-}
+} 
     let divFundo = document.querySelector('#tela-jogo');
 
     divFundo.style.backgroundImage = `url(${cenaAtualObj.fundo})`;
@@ -198,6 +198,27 @@ function mudarCena(direcao) {
 
     irParaCena(proximaCena);
 }
+
+const modalTutorial =  document.querySelector('#modalTutorial');
+const modalCriadores = document.querySelector('#modalCriadores');
+const abrirModalTutorial = document.querySelector('#config');
+const abrirModalCriadores = document.querySelector('#criadores');
+const fecharModal = document.querySelectorAll('.fecharModal');
+
+abrirModalTutorial.addEventListener('click', () => {
+    modalTutorial.showModal();
+});
+
+abrirModalCriadores.addEventListener('click',() => {
+    modalCriadores.showModal();
+});
+
+fecharModal.forEach((botao) => {
+    botao.addEventListener('click', () => {
+        botao.closest('dialog').close();
+    });
+});
+
 
 function irParaCena(destino) {
     cenaAtual = destino;
