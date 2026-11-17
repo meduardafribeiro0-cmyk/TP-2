@@ -6,8 +6,8 @@
 
 
 #tela-inicial{
-    background-image: url('imagens/inicial.jpg'); 
-    background-position: center top;
+    background-image: url('imagens/imagem_inicial.jpeg');
+    background-position: center bottom;
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
