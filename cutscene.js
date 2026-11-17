@@ -83,7 +83,6 @@ caixaHistoria.addEventListener('click', () => {
 
 //Fecha história e inicia o jogo 
 function fecharHistoriaEIrProJogo() {
-    setTimeout(() => {
         caixaHistoria.classList.add('escondida');
         divFundo.style.backgroundSize = ''; 
 
@@ -97,5 +96,4 @@ function fecharHistoriaEIrProJogo() {
             inventario.style.opacity = '1';
         }, 50);
     }, 2000);
-    }, 1000);
 }

@@ -77,14 +77,17 @@ if (cenaAtualObj.setas) {
 
     let posicaoFundo = cenaAtualObj.posicaoFundo || 'center center';
     divFundo.style.backgroundPosition = posicaoFundo;
+    
+    let largura = cenaAtualObj.largura || 1672;
+    let altura = cenaAtualObj.altura || 941;
 
     let escala = Math.max(
-        divFundo.clientWidth / 1672,
-        divFundo.clientHeight / 941
+        divFundo.clientWidth / largura,
+        divFundo.clientHeight / altura
     );
 
-    let larguraFundo = 1672 * escala; //Vai ter que criar no vetor um valor para imagem futuramente :)
-    let alturaFundo = 941 * escala;
+    let larguraFundo = largura * escala; //Vai ter que criar no vetor um valor para imagem futuramente :)
+    let alturaFundo = altura * escala;
 
     let excessoX = larguraFundo - divFundo.clientWidth;
     let excessoY = alturaFundo - divFundo.clientHeight;
@@ -253,6 +256,9 @@ function executaAcao(evento) {
         
         case 'mudarCena':
             irParaCena(evento.conteudo);
+            break;
+        case 'abrirInterface':
+            document.querySelector('#' + evento.conteudo).classList.remove('escondida');
             break;
 
         default:
