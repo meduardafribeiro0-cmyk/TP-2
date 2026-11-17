@@ -46,12 +46,17 @@ if (cenaAtualObj.setas) {
                                     break;
                                 }
                             }
+
+                            coletavelEl.addEventListener('mouseenter', () => {
+                                mostrarLegenda(evento.frase);
+                            });
                         }
+                        
                         break;
                     }
                 }
         
-    });
+            });
 
     divInteragiveis.addEventListener('mouseenter', () => {
         for (let evento of item.eventos) {
