@@ -12,7 +12,7 @@ if (cenaAtualObj.setas) {
     if (cenaAtualObj.setas.direita !== undefined) {
         setaParaDireita.classList.remove('escondida');
     }
-}
+} 
     let divFundo = document.querySelector('#tela-jogo');
 
     divFundo.style.backgroundImage = `url(${cenaAtualObj.fundo})`;
@@ -184,6 +184,14 @@ function mudarCena(direcao) {
     if (!setas) {
         return;
     }
+
+    let proximaCena = setas[direcao];
+
+    if (proximaCena === undefined) {
+        return;
+    }
+
+    irParaCena(proximaCena);
 }
 
 const modalTutorial =  document.querySelector('#modalTutorial');
@@ -205,15 +213,6 @@ fecharModal.forEach((botao) => {
         botao.closest('dialog').close();
     });
 });
-
-
-    let proximaCena = setas[direcao];
-
-    if (proximaCena === undefined) {
-        return;
-    }
-
-    irParaCena(proximaCena);
 
 
 function irParaCena(destino) {
